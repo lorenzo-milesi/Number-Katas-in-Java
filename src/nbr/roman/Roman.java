@@ -5,25 +5,16 @@ import java.util.ArrayList;
 public class Roman {
 
     /**
-     * Converts int into Roman letters upto 3000.
+     * Converts strictly positive int into Roman letters upto 3000.
      */
     public static String convert(int number) {
         if (number > 3000 || number <= 0) {
             return "Cannot convert";
         }
 
-        ArrayList<Integer> decomposition = Roman.decimalDecompose(number);
+        ArrayList<Integer> decomposition = decimalDecompose(number);
 
-        if (decomposition.get(0) < 4) {
-            return "I".repeat(number);
-        }
-        if (decomposition.get(0) == 4) {
-            return "IV";
-        }
-        if (decomposition.get(0) < 9) {
-            return "V" + "I".repeat(decomposition.get(0) - 5);
-        }
-        return "IX";
+        return letter(decomposition.get(0), 0);
     }
 
     /**
@@ -42,5 +33,18 @@ public class Roman {
             decompose = (decompose - keep) / 10;
         }
         return result;
+    }
+
+    private static String letter(int digit, int power) {
+        if (digit < 4) {
+            return "I".repeat(digit);
+        }
+        if (digit == 4) {
+            return "I" + "V";
+        }
+        if (digit < 9) {
+            return "V" + "I".repeat(digit - 5);
+        }
+        return "I" + "X";
     }
 }
