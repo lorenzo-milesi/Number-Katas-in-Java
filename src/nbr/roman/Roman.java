@@ -3,7 +3,6 @@ package nbr.roman;
 import java.util.ArrayList;
 
 public class Roman {
-
     /**
      * Converts strictly positive int into Roman letters upto 3000.
      */
@@ -14,7 +13,11 @@ public class Roman {
 
         ArrayList<Integer> decomposition = decimalDecompose(number);
 
-        return letter(decomposition.get(0), 0);
+        StringBuilder end = new StringBuilder();
+        for (int p = 0; p < decomposition.size(); p++) {
+            end.append(generate(decomposition.get(p), p));
+        }
+        return end.toString();
     }
 
     /**
@@ -35,16 +38,24 @@ public class Roman {
         return result;
     }
 
-    private static String letter(int digit, int power) {
+    private static String generate(int digit, int power) {
         if (digit < 4) {
-            return "I".repeat(digit);
+            return letters(power).I.repeat(digit);
         }
         if (digit == 4) {
-            return "I" + "V";
+            return letters(power).I + letters(power).V;
         }
         if (digit < 9) {
-            return "V" + "I".repeat(digit - 5);
+            return letters(power).V + letters(power).I.repeat(digit - 5);
         }
-        return "I" + "X";
+        return letters(power).I + letters(power).X;
+    }
+
+    private static Letters letters(int power) {
+        return switch (power) {
+            case 1 -> new Letters("X", "L", "C");
+            case 2 -> new Letters("C", "D", "M");
+            default -> new Letters("I", "V", "X");
+        };
     }
 }
