@@ -24,4 +24,9 @@ class RomanTest {
     public void four() {
         assertEquals("IV", Roman.convert(4));
     }
+
+    @Test
+    public void five() {
+        assertEquals("V", Roman.convert(5));
+    }
 }
