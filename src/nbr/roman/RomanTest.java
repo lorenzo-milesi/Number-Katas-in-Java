@@ -34,4 +34,15 @@ class RomanTest {
     public void ten() {
         assertEquals("X", Roman.convert(10));
     }
+
+    @Test
+    public void seriesOfNumbers() {
+        assertEquals("XCIX", Roman.convert(99));
+        assertEquals("XLV", Roman.convert(45));
+        assertEquals("CCC", Roman.convert(300));
+        assertEquals("CXV", Roman.convert(115));
+        assertEquals("DLXXV", Roman.convert(575));
+        assertEquals("DCCCXLV", Roman.convert(845));
+        assertEquals("MDCCCLXXIV", Roman.convert(1874));
+    }
 }

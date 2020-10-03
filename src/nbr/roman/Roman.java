@@ -14,7 +14,7 @@ public class Roman {
         ArrayList<Integer> decomposition = decimalDecompose(number);
 
         StringBuilder end = new StringBuilder();
-        for (int p = 0; p < decomposition.size(); p++) {
+        for (int p = decomposition.size() - 1; p >= 0; p--) {
             end.append(generate(decomposition.get(p), p));
         }
         return end.toString();
@@ -53,9 +53,10 @@ public class Roman {
 
     private static Letters letters(int power) {
         return switch (power) {
+            case 0 -> new Letters("I", "V", "X");
             case 1 -> new Letters("X", "L", "C");
             case 2 -> new Letters("C", "D", "M");
-            default -> new Letters("I", "V", "X");
+            default -> new Letters("M", ".", "..");
         };
     }
 }
