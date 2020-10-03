@@ -6,17 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RomanTest {
     @Test
-    public void one() {
+    public void oneTwoThree() {
         assertEquals("I", Roman.convert(1));
-    }
-
-    @Test
-    public void two() {
         assertEquals("II", Roman.convert(2));
-    }
-
-    @Test
-    public void three() {
         assertEquals("III", Roman.convert(3));
     }
 
@@ -26,7 +18,10 @@ class RomanTest {
     }
 
     @Test
-    public void five() {
+    public void fiveSixSevenEight() {
         assertEquals("V", Roman.convert(5));
+        assertEquals("VI", Roman.convert(6));
+        assertEquals("VII", Roman.convert(7));
+        assertEquals("VIII", Roman.convert(8));
     }
 }
