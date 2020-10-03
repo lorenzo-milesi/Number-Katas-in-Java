@@ -24,4 +24,9 @@ class RomanTest {
         assertEquals("VII", Roman.convert(7));
         assertEquals("VIII", Roman.convert(8));
     }
+
+    @Test
+    public void nine() {
+        assertEquals("IX", Roman.convert(9));
+    }
 }
