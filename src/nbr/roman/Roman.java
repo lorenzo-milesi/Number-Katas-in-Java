@@ -7,9 +7,7 @@ public class Roman {
      */
     public static String convert(int number) {
         StringBuilder value = new StringBuilder();
-        for(int k = 1 ; k <= number ; k++) {
-            value.append("I");
-        }
+        value.append("I".repeat(number));
         return value.toString();
     }
 }
