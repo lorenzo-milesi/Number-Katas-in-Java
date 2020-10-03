@@ -6,12 +6,10 @@ public class Roman {
      * Converts int into Roman letters upto 3000.
      */
     public static String convert(int number) {
-        if (number == 3) {
-            return "III";
+        StringBuilder value = new StringBuilder();
+        for(int k = 1 ; k <= number ; k++) {
+            value.append("I");
         }
-        if(number == 2) {
-            return "II";
-        }
-       return "I";
+        return value.toString();
     }
 }
